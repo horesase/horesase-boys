@@ -10,7 +10,7 @@ task :build do
       tmp
     }
 
-    file.puts JSON.generate(result)
+    file.puts JSON.generate(result, :indent => "\n")
   }
 end
 
