@@ -25,3 +25,17 @@ $ rake build
 残念ながら、画像に書き込まれている惚れさせ本文は、このプロジェクトのスクリプトでは読み取ることができません。人間様の目によって読み取った文章を yml ファイルの body に打ち込むことになります。
 
 本文データを拡充した Pull Request は、いつでも歓迎です。
+
+## サンプルデータ
+
+![惚れさせ1「ドラム」 - KAZ(32)](http://jigokuno.img.jugem.jp/20090111_795235.gif)
+
+```
+id: 1
+title: ドラム
+image: http://jigokuno.img.jugem.jp/20090111_795235.gif
+character: KAZ(32)
+cid: 1
+eid: 1
+body: この世に存在するドラムは 全て俺が叩く
+```
