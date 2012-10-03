@@ -6,7 +6,12 @@ task :build do
 
   open("boys.json", "w") { |file|
     result = Dir["data/*"].inject([]) { |tmp, path|
-      tmp << YAML.load(open(path))
+      data = YAML.load_file(path)
+      text_path = File.join('text', File.basename(path, '.yml') + '.txt')
+      if File.exist?(text_path)
+        data["body"] = File.read(text_path)
+      end
+      tmp << data
       tmp
     }
 
@@ -26,7 +31,7 @@ task :fetch do
     puts "[%3s] %s / %s / %s" % [:id, :title, :character, :image].map { |attr| meigen[attr] }
 
     open(File.join(File.dirname(__FILE__), "data", "#{meigen[:id]}.yml"), "w") { |file|
-      YAML.dump(meigen.merge({ :body => nil }).stringify_keys, file)
+      YAML.dump(meigen.stringify_keys, file)
     }
 
     sleep 2
