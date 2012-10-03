@@ -7,9 +7,9 @@ task :build do
   open("boys.json", "w") { |file|
     result = Dir["data/*"].inject([]) { |tmp, path|
       data = YAML.load_file(path)
-      text_path = File.join('body', File.basename(path, '.yml') + '.txt')
-      if File.exist?(text_path)
-        data["body"] = File.read(text_path)
+      body_path = File.join('body', File.basename(path, '.yml') + '.txt')
+      if File.exist?(body_path)
+        data["body"] = File.read(body_path)
       end
       tmp << data
       tmp
