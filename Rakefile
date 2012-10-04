@@ -5,14 +5,14 @@ task :build do
   require "yaml"
   require "json"
 
-  result = Dir["data/*"].inject([]) { |tmp, path|
+  result = Dir["data/*"].map do |path|
     data = YAML.load_file(path)
     body_path = File.join("body", File.basename(path, ".yml") + ".txt")
     body = File.exist?(body_path) ? File.read(body_path) : nil
     data["body"] = body
-    tmp << data
-    tmp
-  }
+
+    data
+  end
 
   File.write("boys.json", JSON.pretty_generate(result))
 end
