@@ -1,5 +1,6 @@
 task :default => :build
 
+desc "Build boys.json"
 task :build do
   require "yaml"
   require "json"
@@ -18,6 +19,7 @@ task :build do
   }
 end
 
+desc "Fetch metadata"
 task :fetch do
   require_relative "lib/jigokuno"
   require "psych"
