@@ -28,9 +28,11 @@ task :fetch do
   horesasu = Jigokuno::Misawa.new
 
   horesasu.each { |meigen|
+    yaml_path = File.join(File.dirname(__FILE__), "data", "#{meigen[:id]}.yml")
+    break if File.exist? yaml_path
+
     puts "[%3s] %s / %s / %s" % [:id, :title, :character, :image].map { |attr| meigen[attr] }
 
-    yaml_path = File.join(File.dirname(__FILE__), "data", "#{meigen[:id]}.yml")
     yaml = YAML.dump(meigen.stringify_keys)
     File.write(yaml_path, yaml)
 
