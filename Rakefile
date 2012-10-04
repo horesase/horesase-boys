@@ -14,7 +14,7 @@ task :build do
       tmp
     }
 
-    file.puts JSON.generate(result, :indent => "\n")
+    file.puts JSON.pretty_generate(result)
   }
 end
 
