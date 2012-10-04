@@ -1,6 +1,6 @@
 task :default => :build
 
-desc "Build boys.json"
+desc "Build meigens.json"
 task :build do
   require "yaml"
   require "json"
