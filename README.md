@@ -4,7 +4,7 @@
 
 ## 成果物
 
-- [https://raw.github.com/june29/horesase-boys/master/boys.json](https://raw.github.com/june29/horesase-boys/master/boys.json)
+- [https://raw.github.com/june29/horesase-boys/master/meigens.json](https://raw.github.com/june29/horesase-boys/master/meigens.json)
 
 ## 遊び方
 
@@ -14,7 +14,7 @@ http://jigokuno.com/ から最新の惚れさせ情報を取得して data デ�
 $ rake fetch
 ```
 
-data ディレクトリ内の全 yml ファイルの内容と body ディレクトリ内にある本文データをまとめた boys.json を生成する。
+data ディレクトリ内の全 yml ファイルの内容と body ディレクトリ内にある本文データをまとめた meigens.json を生成する。
 
 ```
 $ rake build
