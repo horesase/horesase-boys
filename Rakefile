@@ -7,7 +7,7 @@ task :build do
 
   result = Dir["data/*"].inject([]) { |tmp, path|
     data = YAML.load_file(path)
-    body_path = File.join('body', File.basename(path, '.yml') + '.txt')
+    body_path = File.join("body", File.basename(path, ".yml") + ".txt")
     body = File.exist?(body_path) ? File.read(body_path) : nil
     data["body"] = body
     tmp << data
