@@ -5,7 +5,7 @@ task :build do
   require "yaml"
   require "json"
 
-  result = Dir["data/*"].map do |path|
+  records = Dir["data/*"].map do |path|
     data = YAML.load_file(path)
     body_path = File.join("body", File.basename(path, ".yml") + ".txt")
     body = File.exist?(body_path) ? File.read(body_path) : nil
@@ -13,8 +13,9 @@ task :build do
 
     data
   end
+  records = records.sort_by {|record| record["id"] }
 
-  File.write("boys.json", JSON.pretty_generate(result))
+  File.write("boys.json", JSON.pretty_generate(records))
 end
 
 desc "Fetch metadata"
