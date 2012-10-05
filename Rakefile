@@ -15,7 +15,7 @@ task :build do
   end
   records = records.sort_by {|record| record["id"] }
 
-  File.write("dist/meigens.json", JSON.pretty_generate(records))
+  File.write("dist/meigens.json", JSON.generate(records))
 end
 
 desc "Fetch metadata"
