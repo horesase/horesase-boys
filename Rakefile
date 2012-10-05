@@ -39,3 +39,12 @@ task :fetch do
     sleep 2
   }
 end
+
+desc "Upload to Github Download section"
+task :upload => :build do
+  require "github_downloads"
+  uploader = GithubDownloads::Uploader.new
+  uploader.authorize
+
+  uploader.upload_file("meigens.json", "Latest build", "meigens.json")
+end
