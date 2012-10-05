@@ -1,6 +1,6 @@
 task :default => :build
 
-desc "Build meigens.json"
+desc "Build dist/meigens.json"
 task :build do
   require "yaml"
   require "json"
@@ -15,7 +15,7 @@ task :build do
   end
   records = records.sort_by {|record| record["id"] }
 
-  File.write("meigens.json", JSON.pretty_generate(records))
+  File.write("dist/meigens.json", JSON.pretty_generate(records))
 end
 
 desc "Fetch metadata"
@@ -46,5 +46,5 @@ task :upload => :build do
   uploader = GithubDownloads::Uploader.new
   uploader.authorize
 
-  uploader.upload_file("meigens.json", "Latest build", "meigens.json")
+  uploader.upload_file("meigens.json", "Latest build", "dist/meigens.json")
 end
