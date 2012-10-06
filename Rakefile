@@ -4,6 +4,7 @@ task :default => :build
 
 BASE_DIR = Pathname(".")
 DATA_DIR = BASE_DIR + "data"
+BODY_DIR = BASE_DIR + "body"
 
 desc "Build dist/meigens.json"
 task :build do
@@ -15,8 +16,8 @@ task :build do
 
   records = Dir[DATA_DIR + "*"].map do |path|
     data = YAML.load_file(path)
-    body_path = File.join("body", File.basename(path, ".yml") + ".txt")
-    body = File.exist?(body_path) ? File.read(body_path) : nil
+    body_path = BODY_DIR + (File.basename(path, ".yml") + ".txt")
+    body = body_path.exist? ? body_path.read : nil
     data["body"] = body
 
     data
