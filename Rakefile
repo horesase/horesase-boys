@@ -25,9 +25,7 @@ task :build do
     data
   end
   records = records.sort_by {|record| record["id"] }
-  num_with_body = records.inject(0) do |sum, record|
-    sum + (record["body"] ? 1 : 0)
-  end
+  num_with_body = records.select {|record| record["body"] }.size
   puts "%d of %d (%0.1f%%) have body text" % [
     num_with_body,
     records.size,
@@ -47,17 +45,17 @@ task :fetch do
 
   horesasu = Jigokuno::Misawa.new
 
-  horesasu.each { |meigen|
+  horesasu.each do |meigen|
     yaml_path = DATA_DIR + "#{meigen[:id]}.yml"
     break if yaml_path.exist?
 
-    puts "[%3s] %s / %s / %s" % [:id, :title, :character, :image].map { |attr| meigen[attr] }
+    puts "[%3s] %s / %s / %s" % [:id, :title, :character, :image].map {|attr| meigen[attr] }
 
     yaml = YAML.dump(meigen.stringify_keys)
     File.write(yaml_path, yaml)
 
     sleep 2
-  }
+  end
 end
 
 desc "Upload to Github Download section"
