@@ -1,4 +1,9 @@
+require "pathname"
+
 task :default => :build
+
+BASE_DIR = Pathname(".")
+DATA_DIR = BASE_DIR + "data"
 
 desc "Build dist/meigens.json"
 task :build do
@@ -8,7 +13,7 @@ task :build do
   dest_path = "dist/meigens.json"
   puts "Generating %s ..." % dest_path
 
-  records = Dir["data/*"].map do |path|
+  records = Dir[DATA_DIR + "*"].map do |path|
     data = YAML.load_file(path)
     body_path = File.join("body", File.basename(path, ".yml") + ".txt")
     body = File.exist?(body_path) ? File.read(body_path) : nil
@@ -40,8 +45,8 @@ task :fetch do
   horesasu = Jigokuno::Misawa.new
 
   horesasu.each { |meigen|
-    yaml_path = File.join(File.dirname(__FILE__), "data", "#{meigen[:id]}.yml")
-    break if File.exist? yaml_path
+    yaml_path = DATA_DIR + "#{meigen[:id]}.yml"
+    break if yaml_path.exist?
 
     puts "[%3s] %s / %s / %s" % [:id, :title, :character, :image].map { |attr| meigen[attr] }
 
