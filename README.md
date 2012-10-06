@@ -4,7 +4,7 @@
 
 ## 成果物
 
-- [https://github.com/downloads/june29/horesase-boys/meigens.json]([https://github.com/downloads/june29/horesase-boys/meigens.json)
+- [https://github.com/downloads/june29/horesase-boys/meigens.json](https://github.com/downloads/june29/horesase-boys/meigens.json)
 
 ## 遊び方
 
