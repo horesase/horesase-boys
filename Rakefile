@@ -5,14 +5,16 @@ task :default => :build
 BASE_DIR = Pathname(".")
 DATA_DIR = BASE_DIR + "data"
 BODY_DIR = BASE_DIR + "body"
+DIST_DIR = BASE_DIR + "dist"
+DIST_FILENAME = "meigens.json"
+DIST_PATH = DIST_DIR + DIST_FILENAME
 
-desc "Build dist/meigens.json"
+desc "Build #{DIST_PATH}"
 task :build do
   require "yaml"
   require "json"
 
-  dest_path = "dist/meigens.json"
-  puts "Generating %s ..." % dest_path
+  puts "Generating %s ..." % DIST_PATH
 
   records = Dir[DATA_DIR + "*"].map do |path|
     data = YAML.load_file(path)
@@ -32,7 +34,7 @@ task :build do
     num_with_body.to_f / records.size.to_f * 100
   ]
 
-  bytes_written = File.write(dest_path, JSON.generate(records))
+  bytes_written = File.write(DIST_PATH, JSON.generate(records))
   puts "%d bytes written" % bytes_written
 end
 
@@ -64,5 +66,5 @@ task :upload => :build do
   uploader = GithubDownloads::Uploader.new
   uploader.authorize
 
-  uploader.upload_file("meigens.json", "Latest build", "dist/meigens.json")
+  uploader.upload_file(DIST_FILENAME, "Latest build", DIST_PATH.to_s)
 end
