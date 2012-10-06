@@ -5,6 +5,9 @@ task :build do
   require "yaml"
   require "json"
 
+  dest_path = "dist/meigens.json"
+  puts "Generating %s ..." % dest_path
+
   records = Dir["data/*"].map do |path|
     data = YAML.load_file(path)
     body_path = File.join("body", File.basename(path, ".yml") + ".txt")
@@ -14,8 +17,17 @@ task :build do
     data
   end
   records = records.sort_by {|record| record["id"] }
+  num_with_body = records.inject(0) do |sum, record|
+    sum + (record["body"] ? 1 : 0)
+  end
+  puts "%d of %d (%0.1f%%) have body text" % [
+    num_with_body,
+    records.size,
+    num_with_body.to_f / records.size.to_f * 100
+  ]
 
-  File.write("dist/meigens.json", JSON.generate(records))
+  bytes_written = File.write(dest_path, JSON.generate(records))
+  puts "%d bytes written" % bytes_written
 end
 
 desc "Fetch metadata"
