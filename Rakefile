@@ -64,5 +64,7 @@ task :upload => :build do
   uploader = GithubDownloads::Uploader.new
   uploader.authorize
 
+  puts "Uploading ..."
   uploader.upload_file(DIST_FILENAME, "Latest build", DIST_PATH.to_s)
+  puts "Done."
 end
