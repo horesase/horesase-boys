@@ -1,10 +1,14 @@
 # 惚れさせ男子データベース
 
-[地獄のミサワの「女に惚れさす名言集」](http://jigokuno.com/ "地獄のミサワの「女に惚れさす名言集」")の惚れさせ男子たちをデータベース化するプロジェクトです。
+[地獄のミサワの「女に惚れさす名言集」](http://jigokuno.com/ "地獄のミサワの「女に惚れさす名言集」")の惚れさ男子たちをデータベース化するプロジェクトです。
 
 ## 成果物
 
 - [https://github.com/downloads/june29/horesase-boys/meigens.json](https://github.com/downloads/june29/horesase-boys/meigens.json)
+
+## 動作環境
+
+- Ruby 1.9.3
 
 ## 遊び方
 
