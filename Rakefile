@@ -19,7 +19,8 @@ task :build do
   records = Dir[DATA_DIR + "*"].map do |path|
     data = YAML.load_file(path)
     body_path = BODY_DIR + (File.basename(path, ".yml") + ".txt")
-    body = body_path.exist? ? body_path.read : nil
+    body = body_path.exist? ?
+      body_path.read(:encoding => Encoding::UTF_8) : nil
     data["body"] = body
 
     data
@@ -32,7 +33,11 @@ task :build do
     num_with_body.to_f / records.size.to_f * 100
   ]
 
-  bytes_written = File.write(DIST_PATH, JSON.generate(records))
+  bytes_written = File.write(
+    DIST_PATH,
+    JSON.generate(records),
+    :encoding => Encoding::UTF_8
+  )
   puts "%d bytes written" % bytes_written
 end
 
@@ -52,7 +57,7 @@ task :fetch do
     puts "[%3s] %s / %s / %s" % [:id, :title, :character, :image].map {|attr| meigen[attr] }
 
     yaml = YAML.dump(meigen.stringify_keys)
-    File.write(yaml_path, yaml)
+    File.write(yaml_path, yaml, :encoding => Encoding::UTF_8)
 
     sleep 2
   end
