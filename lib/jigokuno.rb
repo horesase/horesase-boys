@@ -47,7 +47,7 @@ module Jigokuno
 
     def meigens
       @html.xpath("//div[@class='entry_area']").each { |entry|
-        h2 = entry.xpath("h2").text.tr("０-９", "0-9").chomp
+        h2 = entry.xpath(".//h2").text.tr("０-９", "0-9").chomp
         id, title = h2.scan(/惚れさせ(\d+).*「(.+)」/).first
 
         id        = id.to_i
