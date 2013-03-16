@@ -49,14 +49,13 @@ module Jigokuno
       @html.xpath("//div[@class='entry_area']").each { |entry|
         h2 = entry.xpath(".//h2").text.tr("０-９", "0-9").chomp
         id, title = h2.scan(/惚れさせ(\d+).*「(.+)」/).first
-        eid = /eid=(\d+)/ =~ entry.to_s && $1
 
         id        = id.to_i
         title     = title.to_s
         image     = entry.at(".//img[@class='pict']").attributes["src"].to_s
         character = entry.at("center/ul/li[2]/a").text
         cid       = entry.at("center/ul/li[2]/a").attributes["href"].to_s.slice(/cid=(.+)/,1).to_i
-        eid       = eid.to_i
+        eid       = entry.at("h2/a").attributes["href"].to_s.slice(/eid=(.+)/,1).to_i
 
         yield Hash[{
           :id        => id,
