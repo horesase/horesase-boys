@@ -55,7 +55,7 @@ module Jigokuno
         image     = entry.at(".//img[@class='pict']").attributes["src"].to_s
         character = entry.at("center/ul/li[2]/a").text
         cid       = entry.at("center/ul/li[2]/a").attributes["href"].to_s.slice(/cid=(.+)/,1).to_i
-        eid       = entry.at("center/ul/li[3]/a").attributes["href"].to_s.slice(/eid=(.+)/,1).to_i
+        eid       = entry.at("h2/a").attributes["href"].to_s.slice(/eid=(.+)/,1).to_i
 
         yield Hash[{
           :id        => id,
