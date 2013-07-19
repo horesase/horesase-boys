@@ -62,14 +62,3 @@ task :fetch do
     sleep 2
   end
 end
-
-desc "Upload to Github Download section"
-task :upload => :build do
-  require "github_downloads"
-  uploader = GithubDownloads::Uploader.new
-  uploader.authorize
-
-  puts "Uploading ..."
-  uploader.upload_file(DIST_FILENAME, "Latest build", DIST_PATH.to_s)
-  puts "Done."
-end
