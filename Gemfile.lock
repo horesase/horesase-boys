@@ -9,6 +9,8 @@ GEM
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
     atomic (1.1.10)
+    daemons (1.1.9)
+    eventmachine (1.0.3)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     github_api (0.10.2)
@@ -45,6 +47,10 @@ GEM
     rake (10.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    thin (1.5.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     thread_safe (0.1.0)
       atomic
     tzinfo (0.3.37)
@@ -56,4 +62,6 @@ DEPENDENCIES
   activesupport
   github_downloads
   nokogiri
+  rack
   rake
+  thin
