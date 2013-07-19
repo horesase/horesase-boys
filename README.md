@@ -6,7 +6,7 @@
 
 ## 成果物
 
-- [https://github.com/downloads/june29/horesase-boys/meigens.json](https://github.com/downloads/june29/horesase-boys/meigens.json)
+- [http://horesase-boys.herokuapp.com/meigens.json](http://horesase-boys.herokuapp.com/meigens.json)
 
 ## 動作環境
 
