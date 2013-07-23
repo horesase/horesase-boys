@@ -1,3 +1,5 @@
+use Rack::Deflater
+
 use Rack::Static,
   urls: ["/meigens.json"],
   root: "dist",
