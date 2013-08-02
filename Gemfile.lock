@@ -22,7 +22,7 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    thread_safe (0.1.0)
+    thread_safe (0.1.2)
       atomic
     tzinfo (0.3.37)
 
