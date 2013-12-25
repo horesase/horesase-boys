@@ -62,3 +62,7 @@ task :fetch do
     sleep 2
   end
 end
+
+namespace :assets do
+  task :precompile => :build
+end
