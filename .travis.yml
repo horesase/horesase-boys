@@ -2,4 +2,4 @@
 language: ruby
 script: bundle exec rake build
 rvm:
-  - "2.0.0"
+  - "2.1.0"
