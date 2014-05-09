@@ -30,7 +30,6 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
-  bundler (~> 1.5.1)
   nokogiri
   rack
   rake
