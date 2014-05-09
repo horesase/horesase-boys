@@ -2,5 +2,5 @@
 language: ruby
 script: bundle exec rake build
 rvm:
-  - "2.1.1"
+  - "2.1.2"
 before_install: gem install bundler
