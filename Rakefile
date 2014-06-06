@@ -52,12 +52,18 @@ task :fetch do
 
   horesasu.each do |meigen|
     yaml_path = DATA_DIR + "#{meigen[:id]}.yml"
+    text_path = BODY_DIR + "#{meigen[:id]}.txt"
+
     break if yaml_path.exist?
+    break if text_path.exist?
 
     puts "[%3s] %s / %s / %s" % [:id, :title, :character, :image].map {|attr| meigen[attr] }
 
+    body = meigen.delete(:body)
+
     yaml = YAML.dump(meigen.stringify_keys)
     File.write(yaml_path, yaml, :encoding => Encoding::UTF_8)
+    File.write(text_path, body, :encoding => Encoding::UTF_8)
 
     sleep 2
   end
