@@ -55,6 +55,7 @@ module Jigokuno
         scraped = {
           id:        id_str.tr("０-９", "0-9").to_i,
           title:     title,
+          body:      entry.at(".//img[@class='pict']/@alt").value,
           image:     entry.at(".//img[@class='pict']/@src").value,
           character: category_anchor.text,
           cid:       extract_cid(permalink_of_category),
