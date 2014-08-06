@@ -44,22 +44,22 @@ module Jigokuno
     end
 
     def meigens
-      @html.xpath("//div[@class='entry_area']").each { |entry|
-        h2 = entry.at(".//h2")
-        category_anchor = entry.at(".//ul[@class='state']/li[2]/a")
+      @html.xpath("//article").each { |article|
+        h1 = article.at(".//h1")
+        category_anchor = article.at(".//div[@class='article-category']/a")
 
         permalink_of_category = category_anchor.attribute("href").value
-        permalink_of_entry = h2.at("./a/@href").value
-        id_str, title = h2.text.scan(/惚れさせ([０-９]+).*「(.+)」/).first
+        permalink_of_article = h1.at("./a/@href").value
+        id_str, title = h1.text.scan(/惚れさせ([０-９]+).*「(.+)」/).first
 
         scraped = {
           id:        id_str.tr("０-９", "0-9").to_i,
           title:     title,
-          body:      entry.at(".//img[@class='pict']/@alt").value,
-          image:     entry.at(".//img[@class='pict']/@src").value,
+          body:      article.at(".//img[@class='pict']/@alt").value,
+          image:     article.at(".//img[@class='pict']/@src").value,
           character: category_anchor.text,
           cid:       extract_cid(permalink_of_category),
-          eid:       extract_eid(permalink_of_entry)
+          eid:       extract_eid(permalink_of_article)
         }
 
         yield scraped
@@ -68,7 +68,7 @@ module Jigokuno
 
     private
     def extract_eid(url)
-      if matched = url.match(/eid=(\d+)\z/)
+      if matched = url.match(/eid_(\d+)/)
         matched[1].to_i
       else
         raise "Can't extract eid from #{url}"
@@ -76,7 +76,7 @@ module Jigokuno
     end
 
     def extract_cid(url)
-      if matched = url.match(/cid=(\d+)\z/)
+      if matched = url.match(/cid_(\d+)/)
         matched[1].to_i
       else
         raise "Can't extract cid from #{url}"
