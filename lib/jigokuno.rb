@@ -5,7 +5,7 @@ require "nokogiri"
 
 module Jigokuno
   URL               = "http://jigokuno.com/"
-  NEXT_CSS_SELECTOR = "#pager span.pager_next a"
+  NEXT_CSS_SELECTOR = ".archiveNav a[rel='next']"
 
   class Misawa
     include Enumerable
