@@ -46,7 +46,7 @@ task :fetch do
   require_relative "lib/jigokuno"
   require "psych"
   require "yaml"
-  require "active_support/core_ext"
+  require "active_support/core_ext/hash"
 
   horesasu = Jigokuno::Misawa.new
 
