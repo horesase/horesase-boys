@@ -28,18 +28,18 @@ $ rake build
 
 ## 本文データ
 
-残念ながら、画像に書き込まれている惚れさせ本文は、このプロジェクトのスクリプトでは読み取ることができません。人間様の目によって読み取った文章をテキストファイルに打ち込むことになります。
+`rake fetch` で取得する本文データは、本文中の改行を反映できていません。惚れさせ画像を見ながら、適切な位置に改行を補ってデータを完成させます。
 
-本文データを拡充した Pull Request は、いつでも歓迎です。
+本文データを拡充・修正する Pull Request は、いつでも歓迎です。
 
 ## サンプルデータ
 
-![惚れさせ1「ドラム」 - KAZ(32)](http://jigokuno.img.jugem.jp/20090111_795235.gif)
+![惚れさせ1「ドラム」 - KAZ(32)](http://livedoor.4.blogimg.jp/jigokuno_misawa/imgs/6/b/6bb141f8.gif)
 
 ```
 id: 1
 title: ドラム
-image: http://jigokuno.img.jugem.jp/20090111_795235.gif
+image: http://livedoor.4.blogimg.jp/jigokuno_misawa/imgs/6/b/6bb141f8.gif
 character: KAZ(32)
 cid: 1
 eid: 1
