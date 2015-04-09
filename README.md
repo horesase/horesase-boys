@@ -14,7 +14,7 @@
 
 ## 遊び方
 
-http://jigokuno.com/ から最新の惚れさせ情報を取得して data ディレクトリ内に yml で保存する。
+http://jigokuno.com/ から最新の惚れさせ情報を取得して data ディレクトリ、及び body ディレクトリにデータをファイルで保存する。
 
 ```
 $ rake fetch
