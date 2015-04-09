@@ -1,6 +1,6 @@
 require "pathname"
 
-task :default => :build
+task default: :build
 
 BASE_DIR = Pathname(".")
 DATA_DIR = BASE_DIR + "data"
@@ -20,7 +20,7 @@ task :build do
     data = YAML.load_file(path)
     body_path = BODY_DIR + (File.basename(path, ".yml") + ".txt")
     body = body_path.exist? ?
-      body_path.read(:encoding => Encoding::UTF_8) : nil
+      body_path.read(encoding: Encoding::UTF_8) : nil
     data["body"] = body
 
     data
@@ -36,7 +36,7 @@ task :build do
   bytes_written = File.write(
     DIST_PATH,
     JSON.generate(records),
-    :encoding => Encoding::UTF_8
+    encoding: Encoding::UTF_8
   )
   puts "%d bytes written" % bytes_written
 end
@@ -62,13 +62,13 @@ task :fetch do
     body = meigen.delete(:body)
 
     yaml = YAML.dump(meigen.stringify_keys)
-    File.write(yaml_path, yaml, :encoding => Encoding::UTF_8)
-    File.write(text_path, body, :encoding => Encoding::UTF_8)
+    File.write(yaml_path, yaml, encoding: Encoding::UTF_8)
+    File.write(text_path, body, encoding: Encoding::UTF_8)
 
     sleep 2
   end
 end
 
 namespace :assets do
-  task :precompile => :build
+  task precompile: :build
 end
