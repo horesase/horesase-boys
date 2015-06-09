@@ -35,6 +35,8 @@ deploy:
         - script:
             name: Deploy to github pages
             code: |-
+              rm -rf .git
+              cd dist
               remote="https://$GITHUB_TOKEN@github.com/june29/horesase-boys.git"
               git config user.email "june29.jp@gmail.com"
               git config user.name "june29"
