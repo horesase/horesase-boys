@@ -32,7 +32,13 @@ deploy:
             key_secret: $AWS_SECRET_ACCESS_KEY
             bucket_url: $AWS_BUCKET_URL
             source_dir: dist/
-        - lukevivier/gh-pages:
-            token: $GITHUB_TOKEN
-            basedir: ./dist
-            repo: june29/horesase-boys
+        - script:
+            name: Deploy to github pages
+            code: |-
+              remote="https://$GITHUB_TOKEN@github.com/june29/horesase-boys.git"
+              git config user.email "june29.jp@gmail.com"
+              git config user.name "june29"
+              git init
+              git add .
+              git commit -m "Deploy by $WERCKER_STARTED_BY"
+              git push --quiet $remote master:gh-pages
