@@ -44,4 +44,4 @@ deploy:
               git init
               git add .
               git commit -m "Deploy by $WERCKER_STARTED_BY"
-              git push --quiet $remote master:gh-pages
+              git push --force --quiet $remote master:gh-pages
