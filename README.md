@@ -1,6 +1,6 @@
 # 惚れさせ男子データベース
 
-[![Build Status](https://travis-ci.org/june29/horesase-boys.png?branch=master)](https://travis-ci.org/june29/horesase-boys) [![Dependency Status](https://gemnasium.com/june29/horesase-boys.png)](https://gemnasium.com/june29/horesase-boys)
+[![wercker status](https://app.wercker.com/status/70d0de7c4a2241db998327619279d4fd/s "wercker status")](https://app.wercker.com/project/bykey/70d0de7c4a2241db998327619279d4fd) [![Dependency Status](https://gemnasium.com/june29/horesase-boys.png)](https://gemnasium.com/june29/horesase-boys)
 
 [地獄のミサワの「女に惚れさす名言集」](http://jigokuno.com/ "地獄のミサワの「女に惚れさす名言集」")の惚れさせ男子たちをデータベース化するプロジェクトです。
 
