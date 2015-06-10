@@ -38,7 +38,7 @@ deploy:
               rm -rf .git
               cd dist
               rm -f .gitkeep
-              remote="https://$GITHUB_TOKEN@github.com/june29/horesase-boys.git"
+              remote="https://$GITHUB_TOKEN@github.com/horesase/horesase-boys.git"
               git config --global user.email "june29.jp@gmail.com"
               git config --global user.name "june29"
               git init
