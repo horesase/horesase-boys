@@ -1,12 +1,12 @@
 # 惚れさせ男子データベース
 
-[![wercker status](https://app.wercker.com/status/70d0de7c4a2241db998327619279d4fd/s "wercker status")](https://app.wercker.com/project/bykey/70d0de7c4a2241db998327619279d4fd) [![Dependency Status](https://gemnasium.com/june29/horesase-boys.png)](https://gemnasium.com/june29/horesase-boys)
+[![wercker status](https://app.wercker.com/status/70d0de7c4a2241db998327619279d4fd/s "wercker status")](https://app.wercker.com/project/bykey/70d0de7c4a2241db998327619279d4fd) [![Dependency Status](https://gemnasium.com/horesase/horesase-boys.svg)](https://gemnasium.com/horesase/horesase-boys)
 
 [地獄のミサワの「女に惚れさす名言集」](http://jigokuno.com/ "地獄のミサワの「女に惚れさす名言集」")の惚れさせ男子たちをデータベース化するプロジェクトです。
 
 ## 成果物
 
-- [http://june29.github.io/horesase-boys/meigens.json](http://june29.github.io/horesase-boys/meigens.json)
+- [http://horesase.github.io/horesase-boys/meigens.json](http://horesase.github.io/horesase-boys/meigens.json)
 
 ## 動作環境
 
