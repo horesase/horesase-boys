@@ -50,7 +50,7 @@ module Jigokuno
 
         permalink_of_category = category_anchor.attribute("href").value
         permalink_of_article = h1.at("./a/@href").value
-        id_str, title = h1.text.scan(/惚れさせ([０-９]+).*「(.+)」/).first
+        id_str, title = h1.text.scan(/惚れさせ([０-９0-9]+).*「(.+)」/).first
 
         scraped = {
           id:        id_str.tr("０-９", "0-9").to_i,
