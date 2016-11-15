@@ -1,3 +1,4 @@
 dist
 .bundle
+.ruby-version
 /vendor/bundle
